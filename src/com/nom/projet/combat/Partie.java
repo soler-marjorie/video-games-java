@@ -60,7 +60,7 @@ Le gagnant avec son nom, ou égalité.
         while(nbrTour > 0){
             this.joueur1.Attaque(joueur2);
             this.joueur2.Attaque(joueur1);
-            nbrTour--;
+            this.nbrTour--;
 
             if(this.joueur1.getVie() == 0){
                 System.out.println("Joueur 2 à gagné!");
@@ -80,11 +80,7 @@ Le gagnant avec son nom, ou égalité.
         }
 
         if (nbrTour == 0 && this.joueur1.getVie() > 0 && this.joueur2.getVie() > 0){
-            if(this.joueur1.getVie() > this.joueur2.getVie()){
-                System.out.println("Le joueur 1 à gagné !");
-            }else{
-                System.out.println("Le joueur 2 à gagné !");
-            }
+            System.out.println("Le joueur 1 et le joueur 2 sont à égalités");
         }
     }
 }
