@@ -47,16 +47,7 @@ public class Partie {
     }
 
     /*
-    traitement suivant :
-répéter les actions suivantes à chaque tour (tant que nbrTour est plus grand que 0):
-Lancer l’attaque du j1 -> j2,
-Lancer l’attaque du j2 -> j1,
-Décrémenter le nbrTour (-1 à chaque tour),
-Tester si le joueur 1 a gagné (arrête la partie),
-Tester si le joueur 2 a gagné (arrête la partie),
-Condition de victoire :
-A l’issu du nbr de tour si le joueur 1 à ces points de vie à 0 ou moins le joueur 2 gagne,
-A l’issu du nbr de tour si le joueur 2 à ces points de vie à 0 ou moins le joueur 1 gagne,
+
 Condition d’égalité :
 Si à la fin du nombre de tour les 2 joueurs ont leurs points de vie respectifs supérieurs à 0, il y à égalité.
 Affiche en sortie au format String :
@@ -65,6 +56,7 @@ Le gagnant avec son nom, ou égalité.
      */
 
     public void lancerPartie(){
+
         while(nbrTour > 0){
             this.joueur1.Attaque(joueur2);
             this.joueur2.Attaque(joueur1);
@@ -77,7 +69,22 @@ Le gagnant avec son nom, ou égalité.
                 System.out.println("Joueur 1 à gagné !");
                 return;
             }
+        }
 
+        if(nbrTour == 0){
+            if(this.joueur1.getVie() <= 0){
+                System.out.println("Le joueur 2 à gagné !");
+            }else if(this.joueur2.getVie() <= 0){
+                System.out.println("le joueur 1 à gagné !");
+            }
+        }
+
+        if (nbrTour == 0 && this.joueur1.getVie() > 0 && this.joueur2.getVie() > 0){
+            if(this.joueur1.getVie() > this.joueur2.getVie()){
+                System.out.println("Le joueur 1 à gagné !");
+            }else{
+                System.out.println("Le joueur 2 à gagné !");
+            }
         }
     }
 }
